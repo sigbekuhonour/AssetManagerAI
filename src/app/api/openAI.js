@@ -2,7 +2,7 @@ import OpenAI from "openai/index.mjs";
 import "dotenv/config";
 
 export async function generateCompletion(message) {
-  if (!process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
+  if (!process.env.OPENAI_API_KEY) {
     console.error("No API key found in environment variables!");
     return;
   }

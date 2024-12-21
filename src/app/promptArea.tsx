@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { generateCompletion } from "./api/openAI";
 import { Textarea } from "@/components/ui/textarea";
+import axios from 'axios';
 
 
 export default function PromptArea() {
@@ -20,7 +21,10 @@ export default function PromptArea() {
     }
     setLoading(true);
     try {
-      const value = await generateCompletion(question);
+      const response = await axios.post('http://localhost:50000/api/chat', {
+        message: question
+      })
+      const value = response.data.message;
       setGeneratedMessage(value || "No response received.");
     } catch (error) {
       setGeneratedMessage("An error occurred while fetching the response.");
