@@ -1,20 +1,17 @@
-import { NextApiRequest  } from "next";
-import {NextResponse} from 'next/server'
-import { generateCompletion } from "../openAI";
+import { NextRequest, NextResponse } from "next/server";
+import { generateCompletion } from "./openAI";
 
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const { message } = body;
 
-export async function POST(req: NextApiRequest) {
-    const {message} = req.body;
-    
-    console.log('Inside the post function');
-
-    const llmResult = await generateCompletion(message)
-
-    return NextResponse.json({message: llmResult});
+  console.log("Inside the post function");
+  console.log(message);
+  const llmResult = await generateCompletion(message);
+  return NextResponse.json({ message: llmResult });
 }
 
-export async function GET(req: NextApiRequest) {
-      return NextResponse.json({message: "I'm here"});
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function GET(_: NextRequest) {
+  return NextResponse.json({ message: "I'm here" });
 }
-
-

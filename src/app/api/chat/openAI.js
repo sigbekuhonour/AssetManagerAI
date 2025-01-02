@@ -18,7 +18,7 @@ export async function generateCompletion(message) {
       model: "gpt-4o-mini",
       messages: [
         {
-          role: "system",
+          role: "developer",
           content: [
             {
               type: "text",
@@ -38,15 +38,33 @@ export async function generateCompletion(message) {
             },
           ],
         },
+        {
+          role: "assistant",
+          content: [
+            {
+              type: "text",
+              text: "Provide a concise and clear explanation while also providing supporting links to back up this information highlighted properly",
+            },
+          ],
+        },
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: "Remove any asterik in generated response and replace them with paragraphed bullets",
+            },
+          ],
+        },
       ],
     });
-    return completion.choices[0].message.content; //my res should be the entire completiton which is the json.
     //console.log(completion.choices[0].message.content);
+    return completion.choices[0].message.content; //my res should be the entire completiton which is the json.
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    //console.error('Error calling OpenAI API:', error);
+    //console.error("Error calling OpenAI API:", error);
     return "Oops, an error occurred try again later.";
   }
 }
-//generateCompletion("where is nigeria?");
+//generateCompletion("how does Asset Management of engineering assets like pipes work out?");

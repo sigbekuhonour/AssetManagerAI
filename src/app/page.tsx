@@ -4,7 +4,7 @@ import "dotenv/config";
 
 export default function Home() {
   return (
-    <div className="flex flex-row w-screen h-screen justify-items-start space-x-7 ">
+    <div className="flex flex-row w-screen h-screen justify-evenly ">
       <AppSidebar />
       <PromptArea />
     </div>
