@@ -20,7 +20,7 @@ export default function PromptArea() {
     }
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:50000/api/chat", {
+      const response = await axios.post("http://localhost:50000/chat", {
         message: question,
       });
       const value = response.data.message;

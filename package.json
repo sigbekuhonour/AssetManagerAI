@@ -28,7 +28,8 @@
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.5",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "unstructured-client": "^0.18.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

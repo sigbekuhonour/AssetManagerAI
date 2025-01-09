@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 export default function InputFile() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [desc, setDesc] = useState("");
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -15,8 +16,8 @@ export default function InputFile() {
       {file.path} - {file.size} bytes
     </li>
   ));
-  const uploadPDF = async (e) => {
-    //connection to database
+  const uploadPDF = () => {
+    // processPDF();
   };
   return (
     <div>
@@ -45,7 +46,7 @@ export default function InputFile() {
           type="submit"
           className=" bg-white w-full h-15 rounded-lg  active:bg-neutral-600 border-dashed border-black border"
         >
-          Upload PDF
+          Process PDF
         </button>
         <aside>
           <h4 className="text-white ">
