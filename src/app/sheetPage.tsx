@@ -12,7 +12,7 @@ import Link from "next/link";
 import { CreditCardIcon, User2Icon } from "lucide-react";
 import InputFile from "./inputFile";
 
-export function PDFSheetDemo() {
+export function PDFSheetDemo({getInputProps,getRootProps,uploadedFiles}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -25,7 +25,7 @@ export function PDFSheetDemo() {
             This is where PDFs are uploaded for processing
           </SheetDescription>
         </SheetHeader>
-        <InputFile />
+        <InputFile getInputProps={getInputProps} getRootProps={getRootProps} uploadedFiles={uploadedFiles} />
       </SheetContent>
     </Sheet>
   );

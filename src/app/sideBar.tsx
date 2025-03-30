@@ -12,7 +12,7 @@ import { Book, Settings2 } from "lucide-react";
 import Link from "next/link";
 import { PDFSheetDemo, SettingsSheetDemo } from "./sheetPage";
 
-export default function AppSidebar() {
+export default function AppSidebar({getInputProps,getRootProps,uploadedFiles}) {
   return (
     <Sidebar className="basis-1/4">
       <SidebarContent className="bg-black">
@@ -30,7 +30,7 @@ export default function AppSidebar() {
                   <div className="bg-black">
                     <Book color="white" />
                     <Link href={""}>
-                      <PDFSheetDemo />
+                      <PDFSheetDemo getInputProps={getInputProps} getRootProps={getRootProps} uploadedFiles={uploadedFiles}/>
                     </Link>
                   </div>
                 </SidebarMenuButton>
