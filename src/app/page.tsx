@@ -29,7 +29,6 @@ export default function Home() {
   return (
     <div className="flex flex-row w-screen h-screen justify-evenly ">
       {/* ///uploaded files are needed in the input file component which is a child component of app sidebar */}
-      
       <AppSidebar getInputProps={getInputProps} getRootProps={getRootProps} uploadedFiles={uploadedFiles} />
       {/* i need the uploaded files text */}
       {/* how to extract text from a  pdf file on a storage bucket */}
