@@ -7,8 +7,15 @@ export async function POST(req: NextRequest) {
 
   console.log("Inside the post function");
   console.log(message);
-  const llmResult = await generateCompletion(message);
-  return NextResponse.json({ message: llmResult });
+  try{
+    const llmResult = await generateCompletion(message);
+    console.log(llmResult);
+    return NextResponse.json({ message: llmResult });
+  }
+  catch(err){
+    return err;
+  }
+  
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

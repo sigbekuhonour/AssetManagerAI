@@ -6,8 +6,7 @@ import { useDropzone } from 'react-dropzone'
 
 
 
-export default function InputFile({getInputProps,getRootProps,uploadedFiles}) {
-  
+export default function InputFile({getInputProps,getRootProps,uploadedFiles}) {  
   return (
     <div>
       <div className="bg-white" {...getRootProps()}>
