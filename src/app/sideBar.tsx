@@ -14,7 +14,7 @@ import { PDFSheetDemo, SettingsSheetDemo } from "./sheetPage";
 
 export default function AppSidebar({getInputProps,getRootProps,uploadedFiles}) {
   return (
-    <Sidebar className="basis-1/4">
+    <Sidebar className="sm:basis-1/2 md: basis-1/3 lg:basis-1/4">
       <SidebarContent className="bg-black">
         <SidebarGroup>
           <SidebarGroupLabel className="text-white text-left">

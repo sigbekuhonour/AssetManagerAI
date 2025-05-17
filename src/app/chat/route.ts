@@ -3,12 +3,12 @@ import { generateCompletion } from "./openAI";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { message } = body;
+  const { message , listOfFiles} = body;
 
   console.log("Inside the post function");
   console.log(message);
   try{
-    const llmResult = await generateCompletion(message);
+    const llmResult = await generateCompletion(message,listOfFiles);
     console.log(llmResult);
     return NextResponse.json({ message: llmResult });
   }

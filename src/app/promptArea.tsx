@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function PromptArea() {
+export default function PromptArea({uploadedFilesList}) {
   const [prompt, setPrompt] = useState("");
   const [generatedMessage, setGeneratedMessage] = useState(
     "The answers to your questions will appear here"
@@ -22,6 +22,7 @@ export default function PromptArea() {
     try {
       const response = await axios.post("http://localhost:50000/chat", {
         message: question,
+        listOfFiles: uploadedFilesList
       });
       const value = response.data.message;
       setGeneratedMessage(value || "No response received.");
@@ -34,7 +35,7 @@ export default function PromptArea() {
   }
 
   return (
-    <div className="flex flex-col justify-start basis-3/4">
+    <div className="flex flex-col justify-start sm:basis-1/2 md: basis-2/3 lg:basis-3/4 ">
       <Textarea
         className="bg-black text-white"
         placeholder="Type your message here."

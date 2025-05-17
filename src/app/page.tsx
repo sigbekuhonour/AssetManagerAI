@@ -5,11 +5,38 @@ import AppSidebar from "./sideBar";
 import "dotenv/config";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { supabase } from "@/lib/supabase";
 
 
-export default function Home() {
-  //you got work to do here boy
+export default  function Home() {
+
+
+  //for every single file there has to be a url along with it
   const [uploadedFiles, setUploadedFiles] = useState<any[]>([])
+
+  //you need to find a way to check for the contents of the storage but this is a client
+  //component and you cant use async in client components so God damn it think
+
+
+  //  const { supabaseFiles, error } = await supabase
+  //   .storage
+  //   .from('assets')
+  //   .list("", {
+  //     limit: 100,
+  //     offset: 0,
+  //     sortBy: { column: 'name', order: 'asc' },
+  //   })
+  //   if(!supabaseFiles||supabaseFiles.length === 0){
+  //     console.log("No files in storage")
+  //   }
+  //   else{
+  //     setUploadedFiles(supabaseFiles);
+  //   }
+
+
+
+  //you got work to do here boy
+  
   
     const onDrop = useCallback((acceptedFiles: File[]) => {
       acceptedFiles.forEach(async (file: File) => {
@@ -32,7 +59,9 @@ export default function Home() {
       <AppSidebar getInputProps={getInputProps} getRootProps={getRootProps} uploadedFiles={uploadedFiles} />
       {/* i need the uploaded files text */}
       {/* how to extract text from a  pdf file on a storage bucket */}
-      <PromptArea />
+
+      {/* pass the uploaded files from this top component to the backend */}
+      <PromptArea uploadedFilesList={uploadedFiles} />
     </div>
   );
 }
