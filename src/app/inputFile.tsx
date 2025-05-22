@@ -1,12 +1,21 @@
 "use client"
 import { supabase } from '@/lib/supabase'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { LevelContext } from './page'
 
 
 
 
-export default function InputFile({getInputProps,getRootProps,uploadedFiles}) {  
+export default function InputFile() {  
+  const context = useContext(LevelContext);
+
+  if (!context) {
+    return <div>Error: LevelContext not found.</div>;
+  }
+
+  const { getRootProps, getInputProps, uploadedFiles } = context;
+
   return (
     <div>
       <div className="bg-white" {...getRootProps()}>

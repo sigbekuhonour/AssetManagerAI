@@ -12,9 +12,12 @@ import { Book, Settings2 } from "lucide-react";
 import Link from "next/link";
 import { PDFSheetDemo, SettingsSheetDemo } from "./sheetPage";
 
-export default function AppSidebar({getInputProps,getRootProps,uploadedFiles}) {
+export default function AppSidebar() {
   return (
-    <Sidebar className="sm:basis-1/2 md: basis-1/3 lg:basis-1/4">
+    //this should work for small screens
+    ///   const check = () => setIsMobile(window.innerWidth < breakpoint);   /////
+    //large screens
+    <Sidebar className="sm:basis-2/5 md:basis-1/3 lg:basis-1/4">
       <SidebarContent className="bg-black">
         <SidebarGroup>
           <SidebarGroupLabel className="text-white text-left">
@@ -30,7 +33,7 @@ export default function AppSidebar({getInputProps,getRootProps,uploadedFiles}) {
                   <div className="bg-black">
                     <Book color="white" />
                     <Link href={""}>
-                      <PDFSheetDemo getInputProps={getInputProps} getRootProps={getRootProps} uploadedFiles={uploadedFiles}/>
+                      <PDFSheetDemo/>
                     </Link>
                   </div>
                 </SidebarMenuButton>

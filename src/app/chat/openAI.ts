@@ -4,7 +4,7 @@ import { openai } from '@ai-sdk/openai';
 import "dotenv/config";
 
 //// get signed url
-async function readFile(bucketName, filePath) {
+async function readFile(bucketName: string, filePath: string) {
   const { data, error } = await supabase
     .storage
     .from(bucketName)
@@ -19,7 +19,7 @@ async function readFile(bucketName, filePath) {
 ////
 
 
-export async function generateCompletion(message,listOfFiles) {
+export async function generateCompletion(message:string,listOfFiles:any[]) {
   if (!process.env.OPENAI_API_KEY) {
     console.error("No API key found in environment variables!");
     return;
