@@ -13,12 +13,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: llmResult });
   }
   catch(err){
-    return err;
+     return NextResponse.json({ error: err})
   }
   
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 export async function GET(_: NextRequest) {
   return NextResponse.json({ message: "I'm here" });
 }

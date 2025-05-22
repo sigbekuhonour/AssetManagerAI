@@ -3,16 +3,9 @@ import { uploadTheFile } from "@/lib/uploadFile";
 import PromptArea from "./promptArea";
 import AppSidebar from "./sideBar";
 import "dotenv/config";
-import { createContext, useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-
-interface LevelContextType {
-  getInputProps: ReturnType<typeof useDropzone>['getInputProps'];
-  getRootProps: ReturnType<typeof useDropzone>['getRootProps'];
-  uploadedFiles: any[];
-}
-
-export const LevelContext = createContext<LevelContextType | null>(null)
+import { useState, useCallback } from "react";
+import { LevelContext } from "./LevelContext";
 
 export default  function Home() {
 

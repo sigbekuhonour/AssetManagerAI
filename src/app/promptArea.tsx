@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { Skeleton } from "@/components/ui/skeleton";
-import { LevelContext } from "./page";
+import { LevelContext } from "./LevelContext";
 
 export default function PromptArea() {
   const levelContext = useContext(LevelContext);

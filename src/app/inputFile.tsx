@@ -2,7 +2,7 @@
 import { supabase } from '@/lib/supabase'
 import React, { useCallback, useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { LevelContext } from './page'
+import { LevelContext } from './LevelContext'
 
 
 
