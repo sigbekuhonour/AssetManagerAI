@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LevelContext } from "./LevelContext";
+import { error } from "console";
 
 export default function PromptArea() {
   const levelContext = useContext(LevelContext);
@@ -24,7 +25,20 @@ export default function PromptArea() {
     }
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:50000/chat", {
+      var devUrl = "";
+      if(process.env.NODE_ENV == "development"){
+        if (!process.env.DEV_URL) {
+          throw new Error("DEV_URL is not defined in environment variables.");
+        }
+        devUrl = process.env.DEV_URL;
+      }
+      else if(process.env.NODE_ENV == "production"){
+        if (!process.env.PROD_URL) {
+          throw new Error("PROD_URL is not defined in environment variables.");
+        }
+        devUrl = process.env.PROD_URL;
+      }
+      const response = await axios.post(devUrl, {
         message: question,
         listOfFiles: uploadedFiles
       });
