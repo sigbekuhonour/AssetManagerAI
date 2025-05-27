@@ -36,7 +36,7 @@ export default function PromptArea() {
         if (!process.env.NEXT_PUBLIC_PROD_URL) {
           throw new Error("PROD_URL is not defined in environment variables.");
         }
-        devUrl = process.env.NEXT_PUBLIC_PROD_URL;
+        devUrl = "/chat";
       }
       const response = await axios.post(devUrl, {
         message: question,
