@@ -27,16 +27,16 @@ export default function PromptArea() {
     try {
       var devUrl = "";
       if(process.env.NODE_ENV == "development"){
-        if (!process.env.DEV_URL) {
+        if (!process.env.NEXT_PUBLIC_DEV_URL) {
           throw new Error("DEV_URL is not defined in environment variables.");
         }
-        devUrl = process.env.DEV_URL;
+        devUrl = process.env.NEXT_PUBLIC_DEV_URL;
       }
       else if(process.env.NODE_ENV == "production"){
-        if (!process.env.PROD_URL) {
+        if (!process.env.NEXT_PUBLIC_PROD_URL) {
           throw new Error("PROD_URL is not defined in environment variables.");
         }
-        devUrl = process.env.PROD_URL;
+        devUrl = process.env.NEXT_PUBLIC_PROD_URL;
       }
       const response = await axios.post(devUrl, {
         message: question,
