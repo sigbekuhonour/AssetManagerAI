@@ -56,7 +56,7 @@ export default function PromptArea() {
     <div className="flex flex-col justify-start w-full px- md:px-0 md:basis-2/3 lg:basis-3/4 ">
       <Textarea
         className="bg-black text-white"
-        placeholder="Type your message here."
+        placeholder="Type your questions on engineering assets here."
         value={prompt}
         onChange={(e) => {
           setPrompt(e.target.value);
