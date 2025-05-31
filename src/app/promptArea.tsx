@@ -25,20 +25,7 @@ export default function PromptArea() {
     }
     setLoading(true);
     try {
-      var devUrl = "";
-      if(process.env.NODE_ENV == "development"){
-        if (!process.env.NEXT_PUBLIC_DEV_URL) {
-          throw new Error("DEV_URL is not defined in environment variables.");
-        }
-        devUrl = process.env.NEXT_PUBLIC_DEV_URL;
-      }
-      else if(process.env.NODE_ENV == "production"){
-        if (!process.env.NEXT_PUBLIC_PROD_URL) {
-          throw new Error("PROD_URL is not defined in environment variables.");
-        }
-        devUrl = "/api/chat";
-      }
-      const response = await axios.post(devUrl, {
+      const response = await axios.post("api/chat", {
         message: question,
         listOfFiles: uploadedFiles
       });
